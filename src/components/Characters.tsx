@@ -1,8 +1,9 @@
-import { Character } from "../types/types";
+import { Character as CharacterType } from "../types/types";
 import { useQuery } from "react-query";
+import Character from "./Character";
 
 const Characters = () => {
-  const { data, status } = useQuery<Character[]>("characters", async () => {
+  const { data, status } = useQuery<CharacterType[]>("characters", async () => {
     const response = await fetch("https://rickandmortyapi.com/api/character/");
     const data = await response.json();
     return data.results;
@@ -17,12 +18,10 @@ const Characters = () => {
   }
 
   return (
-    <div>
+    <div className='characters'>
       {data &&
         data.map((character) => (
-          <div key={character.id}>
-            <h1>{character.name}</h1>
-          </div>
+          <Character character={character} key={character.id} />
         ))}
     </div>
   );

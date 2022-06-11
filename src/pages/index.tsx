@@ -1,13 +1,13 @@
-import type { NextPage } from 'next'
-import Characters from '../components/Characters'
+import type { NextPage } from "next";
+import Characters from "../components/Characters";
 
 const Home: NextPage = () => {
   return (
-   <div>
-    <Characters />
+    <div className="container">
+      <h1>Rick and Morty</h1>
+      <Characters />
+    </div>
+  );
+};
 
-   </div>
-  )
-}
-
-export default Home
+export default Home;
